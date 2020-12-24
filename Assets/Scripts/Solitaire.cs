@@ -113,6 +113,7 @@ public class Solitaire : MonoBehaviour
                 );
 
                 newCard.name = card;
+                newCard.GetComponent<Selectable>().row = i;
 
                 if (card == bottoms[i][bottoms[i].Count - 1])
                     newCard.GetComponent<Selectable>().faceUp = true;
@@ -217,6 +218,7 @@ public class Solitaire : MonoBehaviour
                 newTopCard.name = card;
                 tripsOnDisplay.Add(card);
                 newTopCard.GetComponent<Selectable>().faceUp = true;
+                newTopCard.GetComponent<Selectable>().inDeckPile = true;
             }
             deckLocation++;
         }
