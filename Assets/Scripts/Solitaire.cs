@@ -102,15 +102,15 @@ public class Solitaire : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.01f);
 
-                GameObject newCard = Instantiate(
-                    cardPrefab,
-                    new Vector3( bottomPos[i].transform.position.x,
-                                 bottomPos[i].transform.position.y - yOffset,
-                                 bottomPos[i].transform.position.z - zOffset
-                        ),
-                    Quaternion.identity,
-                    bottomPos[i].transform
-                );
+                GameObject newCard =
+                    Instantiate(
+                        cardPrefab,
+                        new Vector3(
+                            bottomPos[i].transform.position.x,
+                            bottomPos[i].transform.position.y - yOffset,
+                            bottomPos[i].transform.position.z - zOffset),
+                        Quaternion.identity,
+                        bottomPos[i].transform);
 
                 newCard.name = card;
                 newCard.GetComponent<Selectable>().row = i;
@@ -203,15 +203,15 @@ public class Solitaire : MonoBehaviour
 
             foreach (string card in deckTrips[deckLocation])
             {
-                GameObject newTopCard = Instantiate(
-                    cardPrefab,
-                    new Vector3( deckButton.transform.position.x + xOffset,
-                                 deckButton.transform.position.y,
-                                 deckButton.transform.position.z + zOffset
-                        ),
-                    Quaternion.identity,
-                    deckButton.transform
-                );
+                GameObject newTopCard =
+                    Instantiate(
+                        cardPrefab,
+                        new Vector3(
+                                deckButton.transform.position.x + xOffset,
+                                deckButton.transform.position.y,
+                                deckButton.transform.position.z + zOffset),
+                        Quaternion.identity,
+                        deckButton.transform);
 
                 xOffset += 0.5f;
                 zOffset -= 0.2f;
@@ -231,6 +231,7 @@ public class Solitaire : MonoBehaviour
 
     void RestackTopDeck()
     {
+        deck.Clear();
         foreach (string card in discardPile)
         {
             deck.Add(card);
