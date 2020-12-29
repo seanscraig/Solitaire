@@ -8,9 +8,9 @@ public class Selectable : MonoBehaviour
     public int row;
     public string suit;
 
+    public bool top = false;
     public bool faceUp = false;
     public bool inDeckPile = false;
-    public bool top = false;
 
     private string valueString;
 
